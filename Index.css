@@ -1,0 +1,246 @@
+:root {
+    --bg-color: #0a0e14;
+    --card-bg: rgba(20, 30, 45, 0.7);
+    --primary-blue: #4a9eff;
+    --steel-blue: #2c3e50;
+    --text-main: #e0e6ed;
+    --text-dim: #94a3b8;
+    --neon-border: #34495e;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 { font-family: 'JetBrains Mono', monospace; }
+.section-title {
+    color: var(--primary-blue);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--neon-border);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 14, 20, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--neon-border);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    background: var(--primary-blue);
+    color: var(--bg-color);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a2a3a 0%, #0a0e14 100%);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin: 10px 0;
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--neon-border);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+}
+
+/* Experience & Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: rgba(44, 62, 80, 0.3);
+    padding: 1.5rem;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.experience-card {
+    border-left: 2px solid var(--steel-blue);
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.exp-list {
+    list-style: none;
+}
+
+.exp-list li::before {
+    content: "> ";
+    color: var(--primary-blue);
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-blue);
+    color: #000;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.btn-secondary {
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Testimonial Carousel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    padding: 2rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Responsive Hamburger */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    
+    .exp-header {
+        flex-direction: column;
+    }
+}
+
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid var(--neon-border);
+}
